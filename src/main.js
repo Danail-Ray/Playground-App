@@ -1,16 +1,16 @@
+import { firebaseApp, firebaseApp } from '@/firebase.js'
 import { createApp } from 'vue'
 import { VueFire, VueFireAuth } from 'vuefire'
-import { firebaseApp } from '@/firebase.js'
 
 import App from './App.vue'
 import router from './router'
 
 // Vuetify
-import 'vuetify/styles'
 import '@mdi/font/css/materialdesignicons.css'
 import { createVuetify } from 'vuetify'
 import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
+import 'vuetify/styles'
 
 const vuetify = createVuetify({
   components,
