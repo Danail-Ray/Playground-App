@@ -46,7 +46,7 @@ async function addCafe() {
             placeholder="Cafe with a Vue"
           />
           <BaseInput
-            v-model="newCafe.rating"
+            v-model.number="newCafe.rating"
             label="Rating"
             type="number"
             min="0"

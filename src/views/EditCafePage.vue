@@ -63,7 +63,7 @@ async function updateCafe() {
               required
             />
             <BaseInput
-              v-model="editCafe.rating"
+              v-model.number="editCafe.rating"
               label="Rating"
               type="number"
               min="0"
