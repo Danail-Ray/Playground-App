@@ -6,6 +6,8 @@ This is the official codebase for [Vue Mastery](https://www.vuemastery.com)'s co
 
 ```sh
 npm install
+
+npm install firebase vuefire
 ```
 
 ### Compile and Hot-Reload for Development
