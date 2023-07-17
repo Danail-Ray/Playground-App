@@ -1,4 +1,4 @@
-import { firebaseApp, firebaseApp } from '@/firebase.js'
+import { firebaseApp } from '@/firebase.js'
 import { createApp } from 'vue'
 import { VueFire, VueFireAuth } from 'vuefire'
 
