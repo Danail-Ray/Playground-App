@@ -2,7 +2,7 @@
 
 This is the official codebase for [Vue Mastery](https://www.vuemastery.com)'s course: [Firebase with Vue 3 and VueFire](https://www.vuemastery.com/courses/firebase-with-vue3-and-vuefire).
 
-## Project Setup
+## Project Setup test test
 
 ```sh
 npm install
