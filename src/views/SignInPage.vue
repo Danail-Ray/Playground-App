@@ -28,13 +28,9 @@ async function createUser() {
     .then((userCredential) => {
       // Signed in
       const user = userCredential.user
-      console.log(user)
-      // ...
     })
     .catch((error) => {
-      const errorCode = error.code
-      const errorMessage = error.message
-      // ..
+      console.log(error.code, error.message)
     })
 }
 
@@ -50,14 +46,19 @@ async function signInToFirebase() {
       // ...
     })
     .catch((error) => {
-      const errorCode = error.code
-      const errorMessage = error.message
+      console.log(error.code, error.message)
     })
 }
 
+let inputType = ref('password')
+let showPasswordIcon = ref('ri-eye-off-line')
+
 function toggleShow() {
-  const showPassword = false
-  this.showPassword = !this.showPassword
+  inputType.value = inputType.value === 'password' ? 'text' : 'password'
+  showPasswordIcon.value =
+    showPasswordIcon.value === 'ri-eye-off-line'
+      ? 'ri-eye-line'
+      : 'ri-eye-off-line'
 }
 </script>
 
@@ -100,62 +101,63 @@ function toggleShow() {
   <!-- <div class="background-image">
       <h1>login</h1>
     </div> -->
-  <div class="login">
-    <img src="../assets/login-bg.png" alt="" class="login-img" />
-    <form action="" class="login-form">
-      <h1 class="login-title">Login</h1>
-      <div class="login-content">
-        <div class="login-box">
-          <i class="ri-user-3-line login-icon"></i>
-          <div class="login-box-input">
-            <input
-              v-model="userInput.email"
-              type="email"
-              label="Email"
-              required
-              class="login-input"
-              placeholder=" "
-            />
-            <label for="" class="login-label">E-Mail</label>
+  <div class="background-img">
+    <div class="login">
+      <!-- <img src="../assets/bg.avif" alt="" class="login-img" /> -->
+      <form action="" class="login-form">
+        <h1 class="login-title">Login</h1>
+        <div class="login-content">
+          <div class="login-box">
+            <i class="ri-user-3-line login-icon"></i>
+            <div class="login-box-input">
+              <input
+                v-model="userInput.email"
+                type="email"
+                label="Email"
+                required
+                class="login-input"
+                placeholder=" "
+              />
+              <label for="" class="login-label">E-Mail</label>
+            </div>
+          </div>
+
+          <div class="login-box">
+            <i class="ri-lock-2-line login-icon"></i>
+            <div class="login-box-input">
+              <input
+                v-model="userInput.password"
+                label="Password"
+                :type="inputType"
+                required
+                class="login-input"
+                placeholder=" "
+              />
+              <label for="" class="login-label">Password</label>
+              <i
+                @click="toggleShow"
+                class="login-eye"
+                :class="showPasswordIcon"
+              ></i>
+            </div>
           </div>
         </div>
-
-        <div class="login-box">
-          <i class="ri-lock-2-line login-icon"></i>
-          <div class="login-box-input">
-            <input
-              v-model="userInput.password"
-              label="Password"
-              type="password"
-              required
-              class="login-input"
-              id="login-pass"
-              placeholder=" "
-            />
-            <label for="" class="login-label">Password</label>
-            <i
-              @click="switchVisibility"
-              class="ri-eye-off-line login-eye"
-              id="login-eye"
-            ></i>
+        <div class="login-check">
+          <div class="login-check-group">
+            <input type="checkbox" class="login-check-input" />
+            <label for="" class="login-check-label">Remember me</label>
           </div>
-        </div>
-      </div>
-      <div class="login-check">
-        <div class="login-check-group">
-          <input type="checkbox" class="login-check-input" />
-          <label for="" class="login-check-label">Remember me</label>
+
+          <a href="#" class="login-forgot">Forgot Password?</a>
         </div>
 
-        <a href="#" class="login-forgot">Forgot Password?</a>
-      </div>
-
-      <button @click="signInToFirebase" class="login-button">Login</button>
-      <p class="login-register">
-        Don't have an account?
-        <a @click="createUser" href="#">Create user with one click</a>
-      </p>
-    </form>
+        <button @click="signInToFirebase" class="login-button">Login</button>
+        <p class="login-register">
+          Don't have an account?
+          <a @click="createUser" href="#">Create user with one click</a>
+        </p>
+      </form>
+    </div>
   </div>
 
   <!-- CDN -->
@@ -171,13 +173,11 @@ function toggleShow() {
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
 
 /* css variables */
-:root {
-  --font-medium: 500;
-}
 
 * {
   box-sizing: border-box;
 }
+
 body,
 input,
 button {
@@ -193,9 +193,9 @@ button {
 a {
   text-decoration: none;
 }
-img {
+/* img {
   max-width: 100%;
-}
+} */
 .login {
   position: relative;
   height: 100vh;
@@ -210,6 +210,16 @@ img {
   height: 100%;
   object-fit: cover;
   object-position: center;
+}
+
+.background-img {
+  background-image: url('../assets/bg.avif');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  position: fixed;
 }
 .login-form {
   position: relative;
@@ -345,13 +355,16 @@ img {
   font-size: 0.813rem;
 }
 
-/* .background-image {
-  background-image: url('https://images.pexels.com/photos/1624496/pexels-photo-1624496.jpeg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-} */
+/* media queries */
+
+@media screen and (min-width: 576px) {
+  .login {
+    justify-content: center;
+  }
+  .login-form {
+    width: 432px;
+    padding: 4rem 3rem 3.5rem;
+    border-radius: 1.5rem;
+  }
+}
 </style>

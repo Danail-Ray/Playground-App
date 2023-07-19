@@ -26,4 +26,8 @@ console.log(auth)
   </AppLayout>
 </template>
 
-<style></style>
+<style>
+body::-webkit-scrollbar {
+  display: none;
+}
+</style>
