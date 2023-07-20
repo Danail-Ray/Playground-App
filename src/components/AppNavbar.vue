@@ -4,26 +4,21 @@ import NavItems from './NavItems.vue'
 
 <template>
   <v-app-bar color="grey-darken-4" height="80">
-    <a class="nav-title" href="/">Kinkify</a>
+    <div class="nav-title" @click="$router.push('/')">Kinkify</div>
     <v-spacer></v-spacer>
     <NavItems />
   </v-app-bar>
 </template>
 
 <style scoped>
-a {
-  text-decoration: none;
-  color: white;
-}
-
 .nav-title {
   font-family: 'Pacifico', cursive;
-
   font-size: 1.3rem;
   transition: transform 0.9s ease-out;
   padding: 2rem;
 }
-a.nav-title:hover {
+.nav-title:hover {
+  cursor: pointer;
   transform: scale(1.2);
 }
 </style>

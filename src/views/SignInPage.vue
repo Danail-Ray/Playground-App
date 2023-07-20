@@ -36,7 +36,7 @@ async function signInToFirebase() {
     .then((userCredential) => {
       // Signed in
       const user = userCredential.user
-      // ...
+      console.log('You are logged in')
     })
     .catch((error) => {
       console.log(error.code, error.message)
@@ -58,7 +58,7 @@ function toggleShow() {
 <template>
   <div class="background-img">
     <div class="login">
-      <form action="" class="login-form">
+      <form action="" class="login-form" @submit.prevent="">
         <h1 class="login-title">Login</h1>
         <div class="login-content">
           <div class="login-box">
@@ -147,9 +147,7 @@ button {
 a {
   text-decoration: none;
 }
-/* img {
-  max-width: 100%;
-} */
+
 .login {
   position: relative;
   height: 100vh;
