@@ -27,6 +27,8 @@ console.log(auth)
 </template>
 
 <style>
+/* fonts */
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 body::-webkit-scrollbar {
   display: none;
 }
