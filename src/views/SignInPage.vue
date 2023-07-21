@@ -113,20 +113,11 @@ function toggleShow() {
       </form>
     </div>
   </div>
-
-  <!-- CDN -->
-
-  <link
-    href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css"
-    rel="stylesheet"
-  />
 </template>
 
 <style scoped>
 /* google fonts */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
-
-/* css variables */
 
 * {
   box-sizing: border-box;
