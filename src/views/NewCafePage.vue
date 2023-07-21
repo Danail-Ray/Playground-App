@@ -34,7 +34,7 @@ async function addCafe() {
 </script>
 
 <template>
-  <BaseContainer>
+  <BaseContainer :style="{ paddingTop: '100px' }">
     <h1 class="mb-4">New Cafe</h1>
     <BaseCard>
       <template v-slot:default>

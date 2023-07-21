@@ -56,7 +56,7 @@ function toggleShow() {
 </script>
 
 <template>
-  <div class="background-img">
+  <div class="background-img" :style="{ paddingTop: '100px' }">
     <div class="login">
       <form action="" class="login-form" @submit.prevent="">
         <h1 class="login-title">Login</h1>
@@ -141,7 +141,7 @@ a {
 
 .login {
   position: relative;
-  height: 100vh;
+  height: 100%;
   display: grid;
   align-items: center;
   color: white;
